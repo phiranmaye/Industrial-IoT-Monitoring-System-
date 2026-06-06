@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "author": "ChatGPT",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp"
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -80,
+      "left": -140
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot",
+      "top": 120,
+      "left": -140
+    },
+    {
+      "type": "wokwi-led",
+      "id": "greenLed",
+      "top": -30,
+      "left": 170,
+      "attrs": {
+        "color": "green"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "redLed",
+      "top": 40,
+      "left": 170,
+      "attrs": {
+        "color": "red"
+      }
+    }
+  ],
+  "connections": [
+    ["dht:VCC","esp:3V3","red"],
+    ["dht:GND","esp:GND.1","black"],
+    ["dht:SDA","esp:15","green"],
+
+    ["pot:VCC","esp:3V3","red"],
+    ["pot:GND","esp:GND.2","black"],
+    ["pot:SIG","esp:34","green"],
+
+    ["greenLed:A","esp:18","green"],
+    ["greenLed:C","esp:GND.3","black"],
+
+    ["redLed:A","esp:19","green"],
+    ["redLed:C","esp:GND.4","black"]
+  ]
+}
